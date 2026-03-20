@@ -1,0 +1,139 @@
+:root {
+    --cream: #FFFDF5;
+    --gold: #D4AF37;
+    --soft-gold: #E6C9A8;
+    --sage: #B9C6B9;
+    --blush: #F9E1E0;
+    --text: #5D544B;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+/* BACKGROUND ARTWORK (PAINTING STYLE) */
+.art-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -5;
+    background: linear-gradient(to bottom, #fdfcf0, #f7e8e8);
+}
+
+.stars {
+    position: absolute; width: 100%; height: 40%;
+    background-image: radial-gradient(circle, var(--gold) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.3;
+}
+
+.crescent-moon {
+    position: absolute; top: 50px; right: 80px;
+    width: 60px; height: 60px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 15px 15px 0 0 var(--soft-gold);
+    transform: rotate(-15deg);
+}
+
+.mosque-silhouette {
+    position: absolute; bottom: 0; width: 100%; height: 200px;
+    background: url('https://www.transparenttextures.com/patterns/clean-gray-paper.png'), 
+                linear-gradient(transparent, var(--sage));
+    mask-image: url('https://cdn-icons-png.flaticon.com/512/2312/2312489.png'); /* Opsional link siluet */
+    opacity: 0.2;
+}
+
+/* ROYAL COUPLE MOCKUP (Using soft shapes) */
+.royal-couple {
+    position: absolute; bottom: 20px; left: 50%;
+    transform: translateX(-50%);
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, var(--blush) 0%, transparent 70%);
+    opacity: 0.5;
+}
+
+/* FLOATING POLAROIDS */
+.floating-memories { position: fixed; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+.polaroid {
+    position: absolute; width: 100px; background: white;
+    padding: 8px 8px 25px 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    animation: floating ease-in-out infinite;
+}
+.polaroid img { width: 100%; height: 80px; object-fit: cover; }
+
+@keyframes floating {
+    0%, 100% { transform: translate(0,0) rotate(-5deg); }
+    50% { transform: translate(10px, -30px) rotate(5deg); }
+}
+
+/* Layout Variations for Photos */
+.p1 { top: 10%; left: 5%; animation-duration: 12s; }
+.p2 { top: 60%; left: 8%; animation-duration: 15s; }
+.p3 { top: 15%; right: 5%; animation-duration: 14s; }
+.p4 { top: 70%; right: 10%; animation-duration: 18s; }
+.p5 { top: 40%; left: 3%; animation-duration: 13s; }
+.p6 { top: 5%; left: 40%; animation-duration: 16s; }
+.p7 { top: 80%; left: 30%; animation-duration: 14s; }
+.p8 { top: 30%; right: 15%; animation-duration: 17s; }
+.p9 { top: 50%; right: 5%; animation-duration: 12s; }
+.p10 { top: 85%; right: 40%; animation-duration: 15s; }
+
+/* CONTAINER & CONTENT */
+.container { max-width: 700px; margin: 0 auto; text-align: center; position: relative; z-index: 10; padding-bottom: 100px; }
+
+.ied-title {
+    font-family: 'Dancing Script', cursive; font-size: 4rem;
+    color: var(--gold); margin-top: 50px;
+    text-shadow: 2px 2px 0px white;
+}
+
+.main-photo-wrapper { margin: 50px auto; width: 300px; position: relative; }
+.frame {
+    border: 15px solid white; border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transform: rotate(2deg); overflow: hidden;
+}
+.frame img { width: 100%; height: auto; display: block; }
+
+/* APOLOGY LIST */
+.apology-container { margin: 50px 20px; background: rgba(255,255,255,0.4); backdrop-filter: blur(10px); padding: 30px; border-radius: 40px; }
+.list-wrapper { display: flex; flex-direction: column; gap: 15px; }
+.apology-card {
+    background: white; padding: 20px; border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    border-left: 8px solid var(--pastel-green);
+    text-align: left; transition: 0.3s;
+}
+
+/* GIANT I LOVE U */
+.love-footer { margin-top: 100px; }
+.giant-text {
+    font-family: 'Fredoka', sans-serif; font-size: 7rem;
+    background: linear-gradient(45deg, var(--gold), var(--blush));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    animation: heartbeat 1.5s infinite;
+}
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* MUSIC BOX */
+.music-box {
+    position: fixed; bottom: 30px; right: 30px;
+    background: white; padding: 15px 25px; border-radius: 50px;
+    display: flex; align-items: center; gap: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1); z-index: 100;
+}
+.play-trigger {
+    width: 45px; height: 45px; border-radius: 50%;
+    border: none; background: var(--blush); color: var(--text);
+    cursor: pointer; font-size: 1.2rem;
+}
+.progress-bar { width: 100px; height: 6px; background: #eee; border-radius: 10px; overflow: hidden; }
+.fill { width: 0%; height: 100%; background: var(--soft-gold); transition: 0.1s; }
